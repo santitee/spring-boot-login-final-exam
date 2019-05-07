@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Register</title>
+   <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+       fieldset {
+           border: 2px black solid;
+       }
+       .container {
+           width: 500px;
+       }
+   </style>
+</head>
+<body>
+   <!-- TODO: Copy menu component จากไฟล์ loginPage.html มาไว้ตรงนี้ -->
+   <th:block th:include="/_menu"></th:block>
+   <h1>Register</h1>
+   <div style="margin: 2%">
+    <!-- TODO: เติมตัวแปร errorMessage ที่นี่ -->
+         <div style="text-align: center; color: red; font-weight: bold" th:if="${errorMessage != null}"
+         th:utext="${errorMessage}">>ข้อความแจ้งเตือนว่าข้อมูลฟอร์มผิดพลาดที่จะถูกแสดงผลแทนที่</div>
+         <!-- TODO: เติม path เพื่อกำหนดว่าฟอร์มจะยิงไปที่หน้าไหนใน controller -->
+         <form th:action="@{/registerValidation}" method='POST'>
+            <fieldset>
+                <legend style="font-weight: bold">Register Form</legend>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-5">Username:</div>
+                        <div class="col-7"><input type="text" name="username"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Firstname:</div>
+                        <div class="col-7"><input type="text" name="firstname"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Lastname:</div>
+                        <div class="col-7"><input type="text" name="lastname"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Password:</div>
+                        <div class="col-7"><input type="password" name="password"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Confirm Password:</div>
+                        <div class="col-7"><input type="password" name="confirm_password"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Email:</div>
+                        <div class="col-7"><input type="email" name="email"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Confirm Email:</div>
+                        <div class="col-7"><input type="email" name="confirm_email"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">Birthday:</div>
+                        <div class="col-7">
+                            <select id="birthDay" name="birth_day">
+                                <option selected>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                               <option>13</option>
+                               <option>14</option>
+                               <option>15</option>
+                               <option>16</option>
+                               <option>17</option>
+                               <option>18</option>
+                               <option>19</option>
+                               <option>20</option>
+                               <option>21</option>
+                               <option>22</option>
+                               <option>23</option>
+                               <option>24</option>
+                               <option>25</option>
+                               <option>26</option>
+                               <option>27</option>
+                               <option>28</option>
+                               <option>29</option>
+                               <option>30</option>
+                               <option>31</option>
+                           </select>
+                           <select id="birthMonth" name="birth_month">
+                               <option selected>1</option>
+                               <option>2</option>
+                               <option>3</option>
+                               <option>4</option>
+                               <option>5</option>
+                               <option>6</option>
+                               <option>7</option>
+                               <option>8</option>
+                               <option>9</option>
+                               <option>10</option>
+                               <option>11</option>
+                               <option>12</option>
+                           </select>
+                           <select id="birthYear" name="birth_year">
+                               <option selected>1980</option>
+                               <option>1981</option>
+                               <option>1982</option>
+                               <option>1983</option>
+                               <option>1984</option>
+                               <option>1985</option>
+                               <option>1986</option>
+                               <option>1987</option>
+                               <option>1988</option>
+                               
+                               <option>1989</option>
+                               <option>1990</option>
+                               <option>1991</option>
+                               <option>1992</option>
+                               <option>1993</option>
+                               <option>1994</option>
+                               <option>1995</option>
+                               <option>1996</option>
+                               <option>1997</option>
+                               <option>1998</option>
+                               <option>1999</option>
+                               <option>2000</option>
+                               <option>2001</option>
+                               <option>2002</option>
+                               <option>2003</option>
+                               <option>2004</option>
+                               <option>2005</option>
+                           </select>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-5">Gender:</div>
+                       <div class="col-7">
+                           <input type="radio" name="gender" value="Male" checked=checked><label> Male</label>
+                           <input type="radio" name="gender" value="Female"><label> Female</label>
+                       </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-12" style="text-align: center">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
+
+                                
+ 
